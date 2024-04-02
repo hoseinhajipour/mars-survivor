@@ -1,0 +1,526 @@
+fileFormatVersion: 2
+guid: 87655f232dc724340af3901585db3f39
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CUPULA_RENEW_Cubiculo
+    second: {fileID: 2100000, guid: 893c8d16aacd8d24294464f0966d8bc0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CUPULA_RENEW_Lampara1
+    second: {fileID: 2100000, guid: ff27164e50101734f91af1c76e1b382c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CUPULA_RENEW_Panel
+    second: {fileID: 2100000, guid: 5193ca387989fbf40b35d64c428041c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CUPULA_RENEW_Soportes
+    second: {fileID: 2100000, guid: 2d8af12c6d0d3d44ebc4436c47833a2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CUPULA_RENEW_Tubo_Descompresion
+    second: {fileID: 2100000, guid: d124a356e5266444c8e5db8f80072070, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CUPULA_RENEW_puerta_Descompresion
+    second: {fileID: 2100000, guid: af4907ead70d24c4d9f4cb18ca43205a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grua_UV
+    second: {fileID: 2100000, guid: bf88d35b95d93204ba297545ee851250, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HUMANO
+    second: {fileID: 2100000, guid: 095323978088e4a44b692ebfe97fd30b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Invernadero_Renew_blinn3
+    second: {fileID: 2100000, guid: aa18e64e65defb64b84be4fbfa584884, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_UV
+    second: {fileID: 2100000, guid: 4984be2cc5ddd344387b36d689adf195, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Molino_2
+    second: {fileID: 2100000, guid: 19e897fbaae337246bb39b848e8128dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Cupula_UV
+    second: {fileID: 2100000, guid: 45b5639a21625a645852e3e6d11475f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Decoraciones_UV
+    second: {fileID: 2100000, guid: 60a64cb704a87964da05ecc8c77130ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Invernadero
+    second: {fileID: 2100000, guid: 5a9714a035e8fd145b94a03b2259b0a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Molino_UV
+    second: {fileID: 2100000, guid: 7eaebac05e89dd64880b5aaeed55d176, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Tubo_10M
+    second: {fileID: 2100000, guid: 83556e1342a191346a36118ef23a4ef3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Tubo_10M_UV
+    second: {fileID: 2100000, guid: a28946a974113eb4ca6a2eb346396a64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Tubo_20MVidrio
+    second: {fileID: 2100000, guid: 4c74f1b373dbbc549b6ae49b6e46e4e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Tubo_20M_UV
+    second: {fileID: 2100000, guid: 7bb86a0d9cce6d54fafa6c8511a56883, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Tubo_DobleT_UV
+    second: {fileID: 2100000, guid: 0855e9f50e027724ebde27a37d6e251d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Tubo_TM_UV
+    second: {fileID: 2100000, guid: be87f78147bc71d40b6f90538592d936, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Tubo_T_Vidrio
+    second: {fileID: 2100000, guid: b5643ba194fe62e4e938a118c5e34208, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Tubo_X_UV
+    second: {fileID: 2100000, guid: 20460d51b339bf24b9651410f3e6c3d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Tubo_X_Vidrio
+    second: {fileID: 2100000, guid: f42e05d53d73c394486a9c375afb32a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Vidrio_Cupula
+    second: {fileID: 2100000, guid: 1afc012f42495934681d23710ac223cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Vidrio_Invernadero
+    second: {fileID: 2100000, guid: 678671747d625df41a101760f2f73651, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropEdificios1_Vidrio_TUBODT
+    second: {fileID: 2100000, guid: 9957b86cc45c06648830daccfdee5d73, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle1_Antena_UV
+    second: {fileID: 2100000, guid: 5f3f2d5ac78a761419c86b05a30536e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle1_Cabina_1_UV
+    second: {fileID: 2100000, guid: 9e3de896f9bd9684cb57fdc75285eebe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle1_Cabina_2_UV
+    second: {fileID: 2100000, guid: a16043c180bc81146acc5d57c4d51c81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle1_Motor_Suspension_UV
+    second: {fileID: 2100000, guid: 9099bfe1ac497074cb9fd2e2aa13fe8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle1_Plataforma_UV
+    second: {fileID: 2100000, guid: 330ad34f9541dc540872c3e4695dd142, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle1_RUEDAS_UV
+    second: {fileID: 2100000, guid: 12bdbc0182181fb42ad4546727cce64d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle1_Tubos_Oxigeno_UV
+    second: {fileID: 2100000, guid: 12a11389e8fa33347a2efea1a35cc4cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle5_CabinaGrua
+    second: {fileID: 2100000, guid: f42943ec58e74b449aaa0d1899608580, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle5_Cabina_1_UV
+    second: {fileID: 2100000, guid: 385fcb156ab94c4488a567d64ccdf1e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle5_Escalera1
+    second: {fileID: 2100000, guid: 8e7bd166f4dd7884bba0b19711c573c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle5_Motor_Suspension_UV
+    second: {fileID: 2100000, guid: c506e08eacfabeb44a38faff145f384c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle5_Motor_UV
+    second: {fileID: 2100000, guid: 813d9addd42c96940820277fc829b98a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle5_Plataforma_UV2
+    second: {fileID: 2100000, guid: 99999d12eef934847978182eab5ef614, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle5_RUEDAS_UV
+    second: {fileID: 2100000, guid: 8ff21ebb93a16b74b9fd212a466e8b02, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle5_Soportes_UV
+    second: {fileID: 2100000, guid: d8c8b46b9ab5bab4fbb7e0efcc3a850a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PropVehicle5_Vidrio_Cabina_UV
+    second: {fileID: 2100000, guid: 40f48655ddbc554419cbd008c3eeb9e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Puerta_Cabina1
+    second: {fileID: 2100000, guid: 283b703882386a24a9308fb48ea4ee32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vidrio_UV_INVERNADERO
+    second: {fileID: 2100000, guid: ab374d1a63a815d49a57c4890063e8f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: f8cf1b907aa27d5489b79d06155911f1, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cabina1_Rescue_UV
+    second: {fileID: 2800000, guid: 4e67eb413fe10ee448313ac086021cd0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cabina1_UV2
+    second: {fileID: 2800000, guid: 58ad294779e668542bf5f930ad28d446, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cabina2_UV2
+    second: {fileID: 2800000, guid: 428082368af7f8245b86704f750555a7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: CabinaGrua_UV
+    second: {fileID: 2800000, guid: 94ee58b7fd5bacb42a33eeb540fe86a5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cupula_UV
+    second: {fileID: 2800000, guid: 5846b7e17428a7a4485fb165ab60ea8c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Decoraciones_UV
+    second: {fileID: 2800000, guid: 9a69a094289f23e478b3cf5e3333729a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Escalera-Plataforma_UV
+    second: {fileID: 2800000, guid: 16c3524d4cceca0418f877dbb1351f3b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Grua_UV
+    second: {fileID: 2800000, guid: 80e7bc95d5f8e944b972615b69ec18ea, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Invernadero_UV
+    second: {fileID: 2800000, guid: e64a7adacf94d2b46ad9ec6fd7c125c1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Invernadero_UV_BASE
+    second: {fileID: 2800000, guid: 85ffe1755135eb344bbea84425e304db, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Molino_UV
+    second: {fileID: 2800000, guid: 3148c17256d10d343b15af6550e3980c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Molino_UV2
+    second: {fileID: 2800000, guid: 5a11bd46538bdc84e8b12d49397ee577, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Motor_UV
+    second: {fileID: 2800000, guid: aacf411d328c67142909a03ead949258, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Oxigeno_UV
+    second: {fileID: 2800000, guid: d9e20f714cc030b47b53c2f56427c972, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: PUERTA_UV_BASE (1)
+    second: {fileID: 2800000, guid: 4a2d1bce6db228745bc5f7a2351d6b68, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: PUERTA_UV_NORMAL
+    second: {fileID: 2800000, guid: 0c3c9ab978dd6c44583a16ef88efa1b5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Plataforma_UV
+    second: {fileID: 2800000, guid: 5308fbe14aba7fa4d93b91d43b875589, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Plataforma_V2_UV
+    second: {fileID: 2800000, guid: ddf36c7adc720e648a359413bcf5e1e5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RUEDA_UV
+    second: {fileID: 2800000, guid: 1c3c4aef6a8ff7d408ae18b27af791e7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Radar_UV
+    second: {fileID: 2800000, guid: 0ac47e48a0586a04582e5a169223e038, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Rotor_2_UV
+    second: {fileID: 2800000, guid: c162ccbcc9b3aa944919346dd0fd8ddc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Rotor_UV
+    second: {fileID: 2800000, guid: d6d8e89820db439438b1b7795a8700ad, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ruedas_v2_UV
+    second: {fileID: 2800000, guid: d9e6dd3bcdf8f51438fac34e195fe16a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Soportes_UV
+    second: {fileID: 2800000, guid: b228ede338cd02841816c375a3c05c5a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tubo_10M_UV
+    second: {fileID: 2800000, guid: 72c0cfa62d6be1c458d4730cc03c6bb6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tubo_20M_UV
+    second: {fileID: 2800000, guid: f5133c909ba46f34a88bfb13707d2664, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tubo_Descompresion_Cubiculo_BaseColor
+    second: {fileID: 2800000, guid: 411bad8e599bad84d889940068b4b554, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tubo_Descompresion_Cubiculo_Normal
+    second: {fileID: 2800000, guid: dea525657251bfc409f48052ac083269, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tubo_Descompresion_Lampara1_BaseColor
+    second: {fileID: 2800000, guid: 34a6837b2092f514f8335b9a06f87e75, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tubo_Descompresion_Soportes_BaseColor
+    second: {fileID: 2800000, guid: 3e74d10993c629845978e46ff53c4717, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tubo_Descompresion_Tubo_Descompresion_BaseColor
+    second: {fileID: 2800000, guid: a9531870ad9729d408459c72c128b60d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tubo_Descompresion_Tubo_Descompresion_Normal
+    second: {fileID: 2800000, guid: 183412f767faff6439b914c48a81c323, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tubo_DobleTM_UV
+    second: {fileID: 2800000, guid: 3e2ecdf192b6c034b961a1d811f71429, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tubo_TM_UV
+    second: {fileID: 2800000, guid: e2e353de000c15449ad83b3e45be0ad6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tubo_X_UV
+    second: {fileID: 2800000, guid: 60b34ba8743e04846b0a16f0c9002ba2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: UV_INVERNADERO_VIDRIO
+    second: {fileID: 2800000, guid: 72167e14c9c35b242a261b6cbd6ef4c7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: humano_UV
+    second: {fileID: 2800000, guid: a093d0818a120634abf505628ca2cded, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: puerta_Cabina_UV
+    second: {fileID: 2800000, guid: ac22a8468f005d84dbe782b0c5a7f4ad, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
