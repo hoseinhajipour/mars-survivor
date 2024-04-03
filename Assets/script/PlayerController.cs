@@ -6,8 +6,6 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed = 5f; // Rotation speed
     public float gravity = 9.81f; // Gravity value
     public Animator animator; // Reference to the Animator component
-    public Transform gunTip;
-    public GameObject bulletPrefab;
     public Inventory inventory;
 
     private CharacterController controller;

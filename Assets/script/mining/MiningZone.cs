@@ -10,6 +10,26 @@ public class MiningZone : MonoBehaviour
 
     private bool isMining = false; // Flag to track if player is mining
     private float miningTimer = 0f; // Timer for mining progress
+    private Animator playerAnimator;
+    public GameObject playerObject;
+    private void Start()
+    {
+        // Find the player object by tag
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            // Get the child object with the Animator component
+            playerAnimator = playerObject.GetComponentInChildren<Animator>();
+            if (playerAnimator == null)
+            {
+                Debug.LogError("Animator component not found on child object of the player!");
+            }
+        }
+        else
+        {
+            Debug.LogError("Player object not found with the tag 'Player'!");
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,12 +52,24 @@ public class MiningZone : MonoBehaviour
         isMining = true;
         miningTimer = 0f; // Reset the timer
         Debug.Log("Mining started...");
+
+        // Play the "mining" animation on the player
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool("isMining", true);
+        }
     }
 
     private void StopMining()
     {
         isMining = false;
         Debug.Log("Mining stopped...");
+
+        // Stop the "mining" animation on the player
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool("isMining", false);
+        }
     }
 
     private void Update()
@@ -51,6 +83,19 @@ public class MiningZone : MonoBehaviour
                 Mine();
                 miningTimer = 0f; // Reset the timer for the next step
             }
+        }
+
+        if (isMining && playerObject != null)
+        {
+            // Calculate the direction to the mining zone
+            Vector3 direction = (transform.position - playerObject.transform.position).normalized;
+
+            // Calculate the target rotation
+            Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+
+            // Smoothly rotate towards the target rotation
+            float rotationSpeed = 5f; // Adjust the rotation speed as needed
+            playerObject.transform.rotation = Quaternion.Slerp(playerObject.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
     }
 
@@ -71,6 +116,13 @@ public class MiningZone : MonoBehaviour
     {
         Debug.Log("Mining complete!");
         AddRewardToInventory();
+
+        // Stop the "mining" animation on the player
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool("isMining", false);
+        }
+
         Destroy(gameObject); // Destroy the mining zone
     }
 
