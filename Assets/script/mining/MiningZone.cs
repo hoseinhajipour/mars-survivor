@@ -1,24 +1,27 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MiningZone : MonoBehaviour
 {
-    public int healthLevel = 3; // Health level of the mining zone
-    public float miningStepDuration = 3f; // Duration of each mining step
-    public GameObject[] objectsToShow; // Array of objects to show based on health level
-    public Inventory inventory; // Reference to the player's inventory
-    public Item[] rewardItems; // Array of items to reward after mining completion
+    public int healthLevel = 3;
+    public float miningStepDuration = 3f;
+    public GameObject[] objectsToShow;
+    public Inventory inventory;
+    public Item[] rewardItems;
 
-    private bool isMining = false; // Flag to track if player is mining
-    private float miningTimer = 0f; // Timer for mining progress
+    public GameObject progressPanel; // Reference to the progress panel
+    public Image progressBar; // Reference to the progress bar image component
+
+    private bool isMining = false;
+    private float miningTimer = 0f;
     private Animator playerAnimator;
-    public GameObject playerObject;
+    private GameObject playerObject;
+
     private void Start()
     {
-        // Find the player object by tag
         playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
-            // Get the child object with the Animator component
             playerAnimator = playerObject.GetComponentInChildren<Animator>();
             if (playerAnimator == null)
             {
@@ -28,6 +31,12 @@ public class MiningZone : MonoBehaviour
         else
         {
             Debug.LogError("Player object not found with the tag 'Player'!");
+        }
+
+        // Hide the progress panel initially
+        if (progressPanel != null)
+        {
+            progressPanel.SetActive(false);
         }
     }
 
@@ -50,10 +59,15 @@ public class MiningZone : MonoBehaviour
     private void StartMining()
     {
         isMining = true;
-        miningTimer = 0f; // Reset the timer
+        miningTimer = 0f;
         Debug.Log("Mining started...");
 
-        // Play the "mining" animation on the player
+        // Show the progress panel
+        if (progressPanel != null)
+        {
+            progressPanel.SetActive(true);
+        }
+
         if (playerAnimator != null)
         {
             playerAnimator.SetBool("isMining", true);
@@ -65,7 +79,12 @@ public class MiningZone : MonoBehaviour
         isMining = false;
         Debug.Log("Mining stopped...");
 
-        // Stop the "mining" animation on the player
+        // Hide the progress panel
+        if (progressPanel != null)
+        {
+            progressPanel.SetActive(false);
+        }
+
         if (playerAnimator != null)
         {
             playerAnimator.SetBool("isMining", false);
@@ -76,32 +95,39 @@ public class MiningZone : MonoBehaviour
     {
         if (isMining)
         {
-            // Update mining progress
             miningTimer += Time.deltaTime;
             if (miningTimer >= miningStepDuration)
             {
                 Mine();
-                miningTimer = 0f; // Reset the timer for the next step
+                miningTimer = 0f;
+            }
+
+            // Calculate total mining progress
+            float totalMiningProgress = 1f - (float)healthLevel / 3f; // Assuming healthLevel starts from 3
+
+            // Invert the fill amount
+            totalMiningProgress = 1f - totalMiningProgress;
+
+            // Update progress bar fill amount
+            if (progressBar != null)
+            {
+                progressBar.fillAmount = totalMiningProgress;
             }
         }
 
         if (isMining && playerObject != null)
         {
-            // Calculate the direction to the mining zone
             Vector3 direction = (transform.position - playerObject.transform.position).normalized;
-
-            // Calculate the target rotation
             Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
-
-            // Smoothly rotate towards the target rotation
-            float rotationSpeed = 5f; // Adjust the rotation speed as needed
+            float rotationSpeed = 5f;
             playerObject.transform.rotation = Quaternion.Slerp(playerObject.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
     }
 
+
     private void Mine()
     {
-        healthLevel--; // Decrease the health level
+        healthLevel--;
         if (healthLevel <= 0)
         {
             MiningComplete();
@@ -117,20 +143,18 @@ public class MiningZone : MonoBehaviour
         Debug.Log("Mining complete!");
         AddRewardToInventory();
 
-        // Stop the "mining" animation on the player
         if (playerAnimator != null)
         {
             playerAnimator.SetBool("isMining", false);
         }
 
-        Destroy(gameObject); // Destroy the mining zone
+        Destroy(gameObject);
     }
 
     private void AddRewardToInventory()
     {
         if (inventory != null)
         {
-            // Add reward items to inventory based on health level or any other condition you want
             for (int i = 0; i < rewardItems.Length; i++)
             {
                 if (rewardItems[i] != null)
@@ -148,7 +172,6 @@ public class MiningZone : MonoBehaviour
 
     private void UpdateMiningState()
     {
-        // Ensure all objects are inactive
         foreach (GameObject obj in objectsToShow)
         {
             if (obj != null)
@@ -157,13 +180,10 @@ public class MiningZone : MonoBehaviour
             }
         }
 
-        // Activate the object at the current health level index
         int objectIndex = Mathf.Clamp(healthLevel, 0, objectsToShow.Length - 1);
         if (objectsToShow[objectIndex] != null)
         {
             objectsToShow[objectIndex].SetActive(true);
         }
     }
-
-
 }
