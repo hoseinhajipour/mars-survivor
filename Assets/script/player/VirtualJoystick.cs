@@ -37,7 +37,7 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
             inputDirection = (inputDirection.magnitude > 1) ? inputDirection.normalized : inputDirection;
 
             // Move joystick handle
-            joystickHandle.anchoredPosition = new Vector2(inputDirection.x * (joystickBackground.sizeDelta.x / 3), inputDirection.y * (joystickBackground.sizeDelta.y / 3));
+            joystickHandle.anchoredPosition = new Vector2(inputDirection.x * (joystickBackground.sizeDelta.x / 2), inputDirection.y * (joystickBackground.sizeDelta.y / 2));
         }
     }
 
