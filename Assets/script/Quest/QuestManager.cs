@@ -1,71 +1,87 @@
 using UnityEngine;
-using TMPro; // Import TextMeshPro
+using UnityEngine.UI;
+using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
-    public Quest questToManage;
-    public TextMeshProUGUI lastActiveQuestText;
-    public TextMeshProUGUI questStatusText;
-    public Transform childQuestsParent;
-    public GameObject childQuestPrefab;
+    public Image questIconImage; // Reference to the UI Image component for the quest icon
+    public TextMeshProUGUI questNameText; // Reference to the TextMeshProUGUI component for the quest name
 
-    private void Start()
+    public Quest activeQuest; // Reference to the currently active quest
+
+    void Start()
     {
-        // Subscribe to quest events
-        if (questToManage != null)
+        // Find the current active quest (You can implement your own logic here)
+        activeQuest = FindActiveQuest();
+        activeQuest.LoadQuestData();
+        // Update the UI to display the active quest
+        if (activeQuest != null)
         {
-            questToManage.onComplete.AddListener(OnQuestComplete);
-            questToManage.onFail.AddListener(OnQuestFail);
-        }
-
-        UpdateUI();
-    }
-
-    private void OnQuestComplete()
-    {
-        questToManage.status = QuestStatus.Complete;
-        UpdateUI();
-        Debug.Log("Quest Completed: " + questToManage.questName);
-        // Add your logic for what happens when the quest is completed
-    }
-
-    private void OnQuestFail()
-    {
-        questToManage.status = QuestStatus.Fail;
-        UpdateUI();
-        Debug.Log("Quest Failed: " + questToManage.questName);
-        // Add your logic for what happens when the quest fails
-    }
-
-    private void UpdateUI()
-    {
-        if (lastActiveQuestText != null)
-            lastActiveQuestText.text = questToManage.questName;
-
-        if (questStatusText != null)
-            questStatusText.text = questToManage.status.ToString();
-
-        UpdateChildQuestsUI();
-    }
-
-    private void UpdateChildQuestsUI()
-    {
-        foreach (Transform child in childQuestsParent)
-        {
-            Destroy(child.gameObject);
-        }
-
-        if (questToManage.childQuests != null)
-        {
-            foreach (var child in questToManage.childQuests)
+            // Set the quest icon
+            if (questIconImage != null && activeQuest.icon != null)
             {
-                GameObject childQuestUI = Instantiate(childQuestPrefab, childQuestsParent);
-                TextMeshProUGUI childQuestNameText = childQuestUI.transform.Find("Name").GetComponent<TextMeshProUGUI>();
-                TextMeshProUGUI childQuestStatusText = childQuestUI.transform.Find("Status").GetComponent<TextMeshProUGUI>();
-
-                childQuestNameText.text = child.questName;
-                childQuestStatusText.text = child.status.ToString();
+                questIconImage.sprite = activeQuest.icon;
+                questIconImage.gameObject.SetActive(true);
             }
+
+            // Set the quest name
+            if (questNameText != null)
+            {
+                questNameText.text = activeQuest.questName;
+            }
+        }
+    }
+
+    // Method to find the current active quest (You can implement your own logic here)
+    private Quest FindActiveQuest()
+    {
+        // For simplicity, let's say the active quest is the first one in the list
+        // You can replace this with your own logic to find the active quest
+        Quest[] quests = Resources.FindObjectsOfTypeAll<Quest>();
+        foreach (Quest quest in quests)
+        {
+            if (quest.status == QuestStatus.Active)
+            {
+                return quest;
+            }
+        }
+        return null; // Return null if no active quest is found
+    }
+
+    // Method to change the status of the active quest
+    public void ChangeQuestStatus(QuestStatus newStatus)
+    {
+        if (activeQuest != null)
+        {
+            activeQuest.UpdateStatus(newStatus);
+
+            // You may want to trigger some events or UI updates based on the new quest status
+
+            // For example, if the quest is complete, activate the next quest
+            if (newStatus == QuestStatus.Complete)
+            {
+                ActivateNextQuest(activeQuest.NextQuest);
+            }
+        }
+    }
+
+    // Method to activate the next quest
+    public void ActivateNextQuest(Quest newQuest)
+    {
+
+        // Update the active quest reference
+        activeQuest = newQuest;
+        activeQuest.UpdateStatus(QuestStatus.Active);
+
+        // Update the UI to display the new active quest
+        if (questIconImage != null && activeQuest.icon != null)
+        {
+            questIconImage.sprite = activeQuest.icon;
+        }
+
+        if (questNameText != null)
+        {
+            questNameText.text = activeQuest.questName;
         }
     }
 }
