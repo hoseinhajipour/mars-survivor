@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff6f380cd2dbba49b1844a6f44c9ab6, type: 3}
+  m_Name: level01_2
+  m_EditorClassIdentifier: 
+  questName: "\u062A\u0639\u0645\u06CC\u0631 \u0633\u06CC\u0633\u062A\u0645 \u0627\u06A9\u0633\u06CC\u0698\u0646
+    \u0633\u0641\u06CC\u0646\u0647"
+  description: Description
+  childQuests: []
+  status: 0
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onFail:
+    m_PersistentCalls:
+      m_Calls: []

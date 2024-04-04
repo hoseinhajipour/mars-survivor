@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: control_panel
+    second: {fileID: 2100000, guid: 3c1ff24e25f97b149bd13b187c45e8f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: glass
     second: {fileID: 2100000, guid: 03b7c75d87418b448878ea83e8acbac2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: repair_kit
+    second: {fileID: 2100000, guid: e4567d98f84bca148b4ef6da9c0ffd74, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -19,6 +29,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: spaceship_outer
     second: {fileID: 2100000, guid: ba913cf8ba54e5e4f958937a67966117, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: control_panel_baseColor
+    second: {fileID: 2800000, guid: c481f58f230c00d4c98fca09e7808473, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: repair_kit_normal
+    second: {fileID: 2800000, guid: 112cc8b3a37433e459e9a7048d52a871, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
