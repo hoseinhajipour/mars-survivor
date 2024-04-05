@@ -81,24 +81,35 @@ public class MiningZone : MonoBehaviour
 
     private void StartMining()
     {
-        // Check if the player's level meets the requirement
-        PlayerLevelManager _PlayerLevelManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLevelManager>(); // Assuming there's a Player script attached to the player object
 
-        if (_PlayerLevelManager.currentPlayerLevel >= PlayerLevelNeed)
+        if (inventory.IsInInventoryByname("hammer"))
         {
-            isMining = true;
-            miningTimer = 0f;
-            Debug.Log("Mining started...");
+            // Check if the player's level meets the requirement
+            PlayerLevelManager _PlayerLevelManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLevelManager>(); // Assuming there's a Player script attached to the player object
 
-            // Show the progress panel
-            if (progressPanel != null)
+            if (_PlayerLevelManager.currentPlayerLevel >= PlayerLevelNeed)
             {
-                progressPanel.SetActive(true);
+                isMining = true;
+                miningTimer = 0f;
+                Debug.Log("Mining started...");
+
+                // Show the progress panel
+                if (progressPanel != null)
+                {
+                    progressPanel.SetActive(true);
+                }
+
+                if (playerAnimator != null)
+                {
+                    playerAnimator.SetBool("isMining", true);
+                }
             }
-
-            if (playerAnimator != null)
+            else
             {
-                playerAnimator.SetBool("isMining", true);
+                playerAnimator.Play("mining");
+                Vector3 _pos = transform.position;
+                _pos.y += 2.5f;
+                FloatMessageManager.ShowFloatMessage("Level Need : " + PlayerLevelNeed, _pos, 3f);
             }
         }
         else
@@ -106,8 +117,11 @@ public class MiningZone : MonoBehaviour
             playerAnimator.Play("mining");
             Vector3 _pos = transform.position;
             _pos.y += 2.5f;
-            FloatMessageManager.ShowFloatMessage("Level Need : " + PlayerLevelNeed, _pos, 3f);
+            FloatMessageManager.ShowFloatMessage("You Need Hammer" , _pos, 3f);
         }
+
+
+
 
 
     }

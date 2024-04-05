@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6243322354193ff43854c8a070349bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: hammer item_3113
+  itemName: hammer item_2537
 --- !u!114 &2162511457671148290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _quest: {fileID: 11400000, guid: 88c3ac5468fe7e943ac003e099e879e5, type: 2}
+  rewardItemPair:
+    item: {fileID: 11400000, guid: c9b3e921e3d6a63459130e4c480039ba, type: 2}
+    quantity: 1
 --- !u!1 &3294754670390911840
 GameObject:
   m_ObjectHideFlags: 0

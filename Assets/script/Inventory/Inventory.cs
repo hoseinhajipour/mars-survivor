@@ -71,6 +71,49 @@ public class Inventory : MonoBehaviour
         SaveInventory();
     }
 
+    public bool IsInInventory(Item item)
+    {
+        // Check if the item exists in ItemQuantityPairs
+        foreach (ItemQuantityPair pair in ItemQuantityPairs)
+        {
+            if (pair.item == item)
+            {
+                return true; // Item found in inventory
+            }
+        }
+
+        return false; // Item not found in inventory
+    }
+    public bool IsInInventoryByname(string itemName)
+    {
+        // Check if the item exists in ItemQuantityPairs
+        foreach (ItemQuantityPair pair in ItemQuantityPairs)
+        {
+            if (pair.item.name == itemName)
+            {
+                return true; // Item found in inventory
+            }
+        }
+
+        return false; // Item not found in inventory
+    }
+
+
+    public bool IsQuantityHave(int QuantityNeed)
+    {
+        // Check if the item exists in ItemQuantityPairs
+        foreach (ItemQuantityPair pair in ItemQuantityPairs)
+        {
+            if (pair.quantity >= QuantityNeed)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
     // Method to save inventory data to PlayerPrefs
     private void SaveInventory()
     {

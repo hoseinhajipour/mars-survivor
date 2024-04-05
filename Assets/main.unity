@@ -12597,6 +12597,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 805677632}
     m_Modifications:
+    - target: {fileID: 986849109750776208, guid: 296c832a1f21eb94d91d526e29687bb5, type: 3}
+      propertyPath: itemName
+      value: fire-extinguisher_9317
+      objectReference: {fileID: 0}
     - target: {fileID: 1170702884512371952, guid: 296c832a1f21eb94d91d526e29687bb5, type: 3}
       propertyPath: m_Name
       value: fire-extinguisher

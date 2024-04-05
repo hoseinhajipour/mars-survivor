@@ -5,6 +5,8 @@ public class ItemAppend : MonoBehaviour
     private QuestManager questManager; // Reference to the QuestManager
     public Quest _quest;
 
+    public ItemQuantityPair rewardItemPair;
+    private Inventory inventory;
     // Reference to the SaveAble component
     private SaveAble saveAble;
 
@@ -36,6 +38,15 @@ public class ItemAppend : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            inventory = other.GetComponent<Inventory>();
+            if (inventory != null)
+            {
+                rewardItemPair.item.quantity = rewardItemPair.quantity;
+                inventory.AddItem(rewardItemPair.item);
+                Debug.Log("Item added to inventory: " + rewardItemPair.item.name);
+            }
+
+
             // Save the item's name to PlayerPrefs using SaveAble's itemName
             if (saveAble != null)
             {
