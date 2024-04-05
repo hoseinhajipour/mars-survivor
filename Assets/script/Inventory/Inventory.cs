@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
+using System.Linq;
 
 [System.Serializable]
 public class Inventory : MonoBehaviour
 {
     public List<Item> items = new List<Item>(); // List of items in the inventory
-    public int maxInventorySize = 1000; // Maximum number of items that can be held in the inventory
+
+    public List<ItemQuantityPair> ItemQuantityPairs = new List<ItemQuantityPair>();
 
     // Event delegate for inventory update
     public delegate void OnInventoryChanged();
@@ -20,35 +21,42 @@ public class Inventory : MonoBehaviour
     }
 
     // Method to add an item to the inventory
-    public void AddItem(Item item)
+    public void AddItem(Item _item)
     {
-        // Check if the inventory is not full
-        if (items.Count < maxInventorySize)
+
+        int existingItemIndex00 = ItemQuantityPairs.FindIndex(i => i.item.name == _item.name);
+
+        int _quantity_final = 1;
+        if (existingItemIndex00 != -1)
         {
-            // Check if the item is already in the inventory
-            Item existingItem = items.Find(i => i.name == item.name);
-            if (existingItem != null)
-            {
-                // If the item already exists, increment its quantity
-                existingItem.quantity++;
-            }
-            else
-            {
-                // Otherwise, add the item to the inventory with a quantity of 1
-                items.Add(item);
-            }
-
-            // Trigger inventory update event
-            onInventoryChangedCallback?.Invoke();
-
-            // Save inventory data
-            SaveInventory();
+            ItemQuantityPairs[existingItemIndex00].quantity += _item.quantity;
+            ItemQuantityPairs[existingItemIndex00].item.quantity = _item.quantity;
+            _quantity_final = ItemQuantityPairs[existingItemIndex00].quantity;
         }
         else
         {
-            Debug.LogWarning("Inventory is full!");
-            // Handle full inventory case
+            ItemQuantityPair newItemQuantityPair = new ItemQuantityPair();
+            newItemQuantityPair.item = _item;
+            newItemQuantityPair.item.quantity = _item.quantity;
+            newItemQuantityPair.quantity = _item.quantity;
+            ItemQuantityPairs.Add(newItemQuantityPair);
+            _quantity_final = _item.quantity;
         }
+
+        int existingItemIndex = items.FindIndex(i => i.name == _item.name);
+        if (existingItemIndex != -1)
+        {
+            items[existingItemIndex] = ItemQuantityPairs[existingItemIndex00].item;
+            items[existingItemIndex].quantity = ItemQuantityPairs[existingItemIndex00].quantity;
+        }
+        else
+        {
+            items.Add(_item);
+
+        }
+        SaveInventory();
+        // Trigger inventory update event
+        onInventoryChangedCallback?.Invoke();
     }
 
     // Method to remove an item from the inventory
@@ -64,12 +72,11 @@ public class Inventory : MonoBehaviour
     }
 
     // Method to save inventory data to PlayerPrefs
-    // Method to save inventory data to PlayerPrefs
     private void SaveInventory()
     {
         // Serialize the list of items
         string json = JsonUtility.ToJson(new SerializableInventory(items));
-     //   Debug.Log(json);
+        //   Debug.Log(json);
         // Save the JSON data to PlayerPrefs
         PlayerPrefs.SetString(PlayerPrefsKey, json);
         PlayerPrefs.Save(); // Make sure to call Save() to ensure data is written immediately
@@ -94,58 +101,20 @@ public class Inventory : MonoBehaviour
             {
                 // Convert the serializable item back to an Item object
                 Item item = new Item();
-                item.itemName = serializableItem.itemName;
+                item.name = serializableItem.name;
+                item.itemName = serializableItem.name;
                 item.icon = serializableItem.icon;
                 item.quantity = serializableItem.quantity;
                 item.description = serializableItem.description;
-                item.weight = serializableItem.weight;
-                item.showInInventory = serializableItem.showInInventory;
-
                 // Add the item to the inventory
                 items.Add(item);
+
+                ItemQuantityPair newItemQuantityPair = new ItemQuantityPair();
+                newItemQuantityPair.item = item;
+                newItemQuantityPair.item.quantity = item.quantity;
+                newItemQuantityPair.quantity = item.quantity;
+                ItemQuantityPairs.Add(newItemQuantityPair);
             }
         }
     }
-
-    // Serializable class to properly serialize list of items
-    [System.Serializable]
-    private class SerializableInventory
-    {
-        public List<SerializableItem> items;
-
-        public SerializableInventory(List<Item> items)
-        {
-            this.items = new List<SerializableItem>();
-
-            // Convert each Item object to its serializable form
-            foreach (Item item in items)
-            {
-                this.items.Add(new SerializableItem(item));
-            }
-        }
-    }
-
-    // Serializable class for Item objects
-    [System.Serializable]
-    private class SerializableItem
-    {
-        public string itemName;
-        public Sprite icon;
-        public int quantity;
-        public string description;
-        public int weight;
-        public bool showInInventory;
-
-        public SerializableItem(Item item)
-        {
-            itemName = item.itemName;
-            icon = item.icon;
-            quantity = item.quantity;
-            description = item.description;
-            weight = item.weight;
-            showInInventory = item.showInInventory;
-        }
-    }
-
-
 }

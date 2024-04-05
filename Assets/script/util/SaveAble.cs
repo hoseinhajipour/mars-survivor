@@ -21,4 +21,9 @@ public class SaveAble : MonoBehaviour
     {
         GenerateUniqueName();
     }
+    // Called automatically whenever a value is changed in the Inspector or when the script is duplicated
+    void OnValidate()
+    {
+        GenerateUniqueName();
+    }
 }

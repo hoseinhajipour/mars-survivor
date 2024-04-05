@@ -58,9 +58,11 @@ public class CraftingStation : MonoBehaviour
 
             // Check if the player has the required item in the inventory
             bool foundItem = false;
-            foreach (Item item in inventory.items)
+            foreach (ItemQuantityPair item in inventory.ItemQuantityPairs)
             {
-                if (item.name == requiredItem.name && item.quantity >= requiredQuantity)
+                Debug.Log(item.item.name + " === " + requiredItem.name);
+                Debug.Log(item.quantity + " >= " + requiredQuantity);
+                if (item.item.name == requiredItem.name && item.quantity >= requiredQuantity)
                 {
                     foundItem = true;
                     break;
@@ -93,16 +95,19 @@ public class CraftingStation : MonoBehaviour
             for (int j = 0; j < inventory.items.Count; j++)
             {
                 Item inventoryItem = inventory.items[j];
+                ItemQuantityPair _ItemQuantityPair = inventory.ItemQuantityPairs[j];
                 // Check if the inventory contains the required item
                 if (inventoryItem.name == requiredItem.name)
                 {
                     // Subtract the required quantity from the inventory
                     inventoryItem.quantity -= requiredQuantity;
+                    _ItemQuantityPair.quantity -= requiredQuantity;
 
                     // Remove the item from inventory if its quantity becomes zero or less
                     if (inventoryItem.quantity <= 0)
                     {
                         inventory.items.RemoveAt(j);
+                        inventory.ItemQuantityPairs.RemoveAt(j);
                     }
                     break;
                 }

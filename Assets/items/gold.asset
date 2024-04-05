@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18400ac0a150e1740896a8469ce73817, type: 3}
   m_Name: gold
   m_EditorClassIdentifier: 
-  name: gold
+  itemName: gold
   icon: {fileID: 21300000, guid: e3a1fc30b39c2234091dedb17fd5ff99, type: 3}
-  quantity: 0
+  quantity: 4
+  description: 
