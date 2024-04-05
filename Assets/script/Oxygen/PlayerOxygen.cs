@@ -7,7 +7,9 @@ public class PlayerOxygen : MonoBehaviour
     public float oxygenConsumptionRate = 1f; // Oxygen consumption rate per second
 
     private bool isDead = false;
+    public GameObject DeadPanel;
 
+    public Animator animator;
     private void Start()
     {
         currentOxygen = maxOxygen;
@@ -38,7 +40,9 @@ public class PlayerOxygen : MonoBehaviour
         // Handle player death (e.g., play death animation, show game over screen)
         isDead = true;
         Debug.Log("Player died due to lack of oxygen!");
-        this.GetComponent<PlayerController>().enabled=false;
+        this.GetComponent<PlayerController>().enabled = false;
+        DeadPanel.SetActive(true);
+        animator.Play("die");
         // You can add more here, such as respawning the player or showing a game over screen.
     }
 }
