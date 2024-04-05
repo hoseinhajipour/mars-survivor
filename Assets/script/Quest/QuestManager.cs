@@ -12,8 +12,8 @@ public class QuestManager : MonoBehaviour
     void Start()
     {
         // Find the current active quest (You can implement your own logic here)
-        activeQuest = FindActiveQuest();
-        activeQuest.LoadQuestData();
+        activeQuest = LoadCurrentQuest();
+
         // Update the UI to display the active quest
         if (activeQuest != null)
         {
@@ -33,19 +33,23 @@ public class QuestManager : MonoBehaviour
     }
 
     // Method to find the current active quest (You can implement your own logic here)
-    private Quest FindActiveQuest()
+    private Quest LoadCurrentQuest()
     {
+
+       string currentQuestName= PlayerPrefs.GetString("currentQuest");
         // For simplicity, let's say the active quest is the first one in the list
         // You can replace this with your own logic to find the active quest
         Quest[] quests = Resources.FindObjectsOfTypeAll<Quest>();
         foreach (Quest quest in quests)
         {
-            if (quest.status == QuestStatus.Active)
+            if (quest.questName == currentQuestName)
             {
                 return quest;
             }
         }
-        return null; // Return null if no active quest is found
+
+
+        return quests[0]; 
     }
 
     // Method to change the status of the active quest
@@ -72,7 +76,7 @@ public class QuestManager : MonoBehaviour
         // Update the active quest reference
         activeQuest = newQuest;
         activeQuest.UpdateStatus(QuestStatus.Active);
-
+PlayerPrefs.SetString("currentQuest",activeQuest.questName);
         // Update the UI to display the new active quest
         if (questIconImage != null && activeQuest.icon != null)
         {

@@ -39,9 +39,6 @@ public class Quest : ScriptableObject
     {
         status = newStatus;
 
-        // Save the updated status
-        SaveQuestData();
-
         // You can invoke additional events or perform other actions based on the new status here
         switch (status)
         {
@@ -68,27 +65,5 @@ public class Quest : ScriptableObject
             onFail.Invoke();
     }
 
-    void SaveQuestData()
-    {
-        // Save the quest data using PlayerPrefs
-        QuestData questData = new QuestData();
-        questData.name = questName;
-        questData.status = status;
-        string json = JsonUtility.ToJson(questData);
-        PlayerPrefs.SetString("Quest_" + questName, json);
-        PlayerPrefs.Save();
-    }
-
-    public void LoadQuestData()
-    {
-        // Load the quest data from PlayerPrefs
-        string json = PlayerPrefs.GetString("Quest_" + questName);
-
-        if (!string.IsNullOrEmpty(json))
-        {
-            QuestData questData = JsonUtility.FromJson<QuestData>(json);
-            status = questData.status;
-
-        }
-    }
+   
 }
