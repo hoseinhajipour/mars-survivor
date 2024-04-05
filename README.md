@@ -1,5 +1,9 @@
 # Mars Survivor - Mobile RPG Game
 
+## Screenshot
+![Mars Survivor Screenshot](https://github.com/hoseinhajipour/mars-survivor/blob/main/Assets/screen.jpg)
+
+
 ## Introduction
 Welcome to Mars Survivor, an exciting RPG game set in the challenging environment of Mars! This game is designed for mobile platforms using Unity3D. In Mars Survivor, players will embark on an epic adventure, navigating the harsh terrain of the Red Planet, encountering various challenges, and uncovering the mysteries of Mars.
 
