@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class MiningZone : MonoBehaviour
 {
+    public int PlayerLevelNeed = 1;
     public int healthLevel = 3;
     public float miningStepDuration = 3f;
     public GameObject[] objectsToShow;
@@ -80,21 +81,37 @@ public class MiningZone : MonoBehaviour
 
     private void StartMining()
     {
-        isMining = true;
-        miningTimer = 0f;
-        Debug.Log("Mining started...");
+        // Check if the player's level meets the requirement
+        PlayerLevelManager _PlayerLevelManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLevelManager>(); // Assuming there's a Player script attached to the player object
 
-        // Show the progress panel
-        if (progressPanel != null)
+        if (_PlayerLevelManager.currentPlayerLevel >= PlayerLevelNeed)
         {
-            progressPanel.SetActive(true);
+            isMining = true;
+            miningTimer = 0f;
+            Debug.Log("Mining started...");
+
+            // Show the progress panel
+            if (progressPanel != null)
+            {
+                progressPanel.SetActive(true);
+            }
+
+            if (playerAnimator != null)
+            {
+                playerAnimator.SetBool("isMining", true);
+            }
+        }
+        else
+        {
+            Vector3 _pos = transform.position;
+            _pos.y += 2.5f;
+            FloatMessageManager.ShowFloatMessage("Level Need : " + PlayerLevelNeed, _pos, 3f);
+            Debug.Log("Player level is not sufficient for mining. Player level needed: " + PlayerLevelNeed);
         }
 
-        if (playerAnimator != null)
-        {
-            playerAnimator.SetBool("isMining", true);
-        }
+
     }
+
 
     private void StopMining()
     {
