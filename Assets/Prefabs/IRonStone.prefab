@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 4708610383183482377}
   - component: {fileID: 5337760198267131069}
   - component: {fileID: 5337760198267131058}
+  - component: {fileID: 7785414017633823798}
   m_Layer: 0
   m_Name: IRonStone
   m_TagString: Untagged
@@ -372,6 +373,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ac3fa6693a361fe4aafdb6fb34627936, type: 2}
   progressPanel: {fileID: 5651188075022999412}
   progressBar: {fileID: 2084512848827551583}
+--- !u!114 &7785414017633823798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337760198267131059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6243322354193ff43854c8a070349bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: IRonStone_3209
 --- !u!1 &5651188075022999412
 GameObject:
   m_ObjectHideFlags: 0

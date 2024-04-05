@@ -6,7 +6,7 @@ using System.IO;
 public class Inventory : MonoBehaviour
 {
     public List<Item> items = new List<Item>(); // List of items in the inventory
-    public int maxInventorySize = 10; // Maximum number of items that can be held in the inventory
+    public int maxInventorySize = 1000; // Maximum number of items that can be held in the inventory
 
     // Event delegate for inventory update
     public delegate void OnInventoryChanged();

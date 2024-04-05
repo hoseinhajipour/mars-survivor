@@ -9,7 +9,7 @@ public class CraftingStation : MonoBehaviour
     public GameObject craftingPanel; // Reference to the crafting panel UI
     public string errorMessage = "You don't have the required items to craft!"; // Error message to display if items are missing
     public GameObject prefabToCreate; // Prefab to create after crafting process ends
-    public Item[] rewardItems; // Array of items to reward after crafting completion
+    public List<ItemQuantityPair> rewardItems = new List<ItemQuantityPair>(); // List of items and their quantities as rewards
     public float craftingDuration = 3f; // Duration of the crafting process
 
     private bool isCraftingInProgress = false; // Flag to track if crafting is in progress
@@ -155,10 +155,10 @@ public class CraftingStation : MonoBehaviour
     // Method to reward items to the player's inventory
     private void RewardItems()
     {
-        foreach (Item rewardItem in rewardItems)
+        foreach (ItemQuantityPair rewardItemPair in rewardItems)
         {
-            // Add the reward item to the player's inventory
-            playerInventory.AddItem(rewardItem);
+            rewardItemPair.item.quantity = rewardItemPair.quantity;
+            playerInventory.AddItem(rewardItemPair.item);
         }
     }
 
@@ -192,10 +192,3 @@ public class CraftingStation : MonoBehaviour
     }
 }
 
-// A class to hold the pair of item and its quantity
-[System.Serializable]
-public class ItemQuantityPair
-{
-    public Item item;
-    public int quantity;
-}

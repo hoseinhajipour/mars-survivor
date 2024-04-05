@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8272816928433687340}
   - component: {fileID: 8272816928433687339}
   - component: {fileID: 8272816928433687338}
+  - component: {fileID: 252633220382832168}
   m_Layer: 0
   m_Name: iron
   m_TagString: Untagged
@@ -111,3 +112,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _item: {fileID: 11400000, guid: ac3fa6693a361fe4aafdb6fb34627936, type: 2}
+--- !u!114 &252633220382832168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8272816928433687337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6243322354193ff43854c8a070349bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: iron_7314

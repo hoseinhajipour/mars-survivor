@@ -5,7 +5,8 @@ public class ItemAppend : MonoBehaviour
     private QuestManager questManager; // Reference to the QuestManager
     public Quest _quest;
 
-    public string itemName = null; // Unique name for the item
+    // Reference to the SaveAble component
+    private SaveAble saveAble;
 
     void Start()
     {
@@ -16,8 +17,15 @@ public class ItemAppend : MonoBehaviour
             Debug.LogError("QuestManager not found in the scene!");
         }
 
-        // Check if the item name exists in PlayerPrefs
-        if (!string.IsNullOrEmpty(itemName) && PlayerPrefs.HasKey(itemName))
+        // Try to get the SaveAble component attached to this GameObject
+        saveAble = GetComponent<SaveAble>();
+        if (saveAble == null)
+        {
+            Debug.LogError("SaveAble component not found on the GameObject!");
+        }
+
+        // Check if the item name exists in PlayerPrefs using the SaveAble's itemName
+        if (saveAble != null && !string.IsNullOrEmpty(saveAble.name) && PlayerPrefs.HasKey(saveAble.name))
         {
             // If the item name exists, destroy the GameObject
             Destroy(gameObject);
@@ -28,9 +36,12 @@ public class ItemAppend : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Save the item's name to PlayerPrefs
-            PlayerPrefs.SetString(itemName, "Collected");
-            PlayerPrefs.Save();
+            // Save the item's name to PlayerPrefs using SaveAble's itemName
+            if (saveAble != null)
+            {
+                PlayerPrefs.SetString(saveAble.name, "Collected");
+                PlayerPrefs.Save();
+            }
 
             // Trigger the onComplete event in the QuestManager to mark the active quest as complete
             if (questManager != null)
@@ -42,20 +53,5 @@ public class ItemAppend : MonoBehaviour
             // Destroy the item object
             Destroy(gameObject);
         }
-    }
-
-    // Generate a unique name for the item
-    private string GenerateUniqueName()
-    {
-        // Use a fixed prefix followed by a randomly generated suffix
-        string prefix = gameObject.name + "_";
-        string suffix = Random.Range(1000, 10000).ToString(); // Generate a random number as suffix
-        return prefix + suffix;
-    }
-
-    // Reset method is called when the script is added to a GameObject or reset from the Inspector window
-    void Reset()
-    {
-        itemName = GenerateUniqueName();
     }
 }

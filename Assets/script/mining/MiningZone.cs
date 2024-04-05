@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class MiningZone : MonoBehaviour
 {
     public int healthLevel = 3;
     public float miningStepDuration = 3f;
     public GameObject[] objectsToShow;
-    public Inventory inventory;
-    public Item[] rewardItems;
+    private Inventory inventory;
+
+    // Combine reward items and their quantities into one list
+    public List<ItemQuantityPair> rewardItems = new List<ItemQuantityPair>();
 
     public GameObject progressPanel; // Reference to the progress panel
     public Image progressBar; // Reference to the progress bar image component
@@ -16,6 +19,9 @@ public class MiningZone : MonoBehaviour
     private float miningTimer = 0f;
     private Animator playerAnimator;
     private GameObject playerObject;
+
+    // Add a reference to the SaveAble component
+    private SaveAble saveAble;
 
     private void Start()
     {
@@ -38,12 +44,28 @@ public class MiningZone : MonoBehaviour
         {
             progressPanel.SetActive(false);
         }
+
+
+        // Try to get the SaveAble component attached to this GameObject
+        saveAble = GetComponent<SaveAble>();
+        if (saveAble == null)
+        {
+            Debug.LogError("SaveAble component not found on the GameObject!");
+        }
+
+        // If SaveAble component is found, check if the item name exists in PlayerPrefs
+        if (saveAble != null && !string.IsNullOrEmpty(saveAble.name) && PlayerPrefs.HasKey(saveAble.name))
+        {
+            // If the item name exists, destroy the GameObject
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            inventory = other.GetComponent<Inventory>();
             StartMining();
         }
     }
@@ -147,7 +169,12 @@ public class MiningZone : MonoBehaviour
         {
             playerAnimator.SetBool("isMining", false);
         }
-
+        // Save the item's name to PlayerPrefs using SaveAble's itemName
+        if (saveAble != null)
+        {
+            PlayerPrefs.SetString(saveAble.name, "Collected");
+            PlayerPrefs.Save();
+        }
         Destroy(gameObject);
     }
 
@@ -155,12 +182,15 @@ public class MiningZone : MonoBehaviour
     {
         if (inventory != null)
         {
-            for (int i = 0; i < rewardItems.Length; i++)
+            foreach (ItemQuantityPair rewardItemPair in rewardItems)
             {
-                if (rewardItems[i] != null)
+                if (rewardItemPair.item != null)
                 {
-                    inventory.AddItem(rewardItems[i]);
-                    Debug.Log("Item added to inventory: " + rewardItems[i].name);
+
+                    rewardItemPair.item.quantity = rewardItemPair.quantity;
+                    inventory.AddItem(rewardItemPair.item);
+                    Debug.Log("Item added to inventory: " + rewardItemPair.item.name);
+
                 }
             }
         }

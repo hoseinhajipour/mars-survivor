@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5514841311103963353}
   - component: {fileID: 1596394340060959588}
   - component: {fileID: 3598865995607352817}
+  - component: {fileID: 5469961334424075233}
   - component: {fileID: 2162511457671148290}
   m_Layer: 0
   m_Name: hammer item
@@ -100,6 +101,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 4.24
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5469961334424075233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2870357841107023830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6243322354193ff43854c8a070349bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: hammer item_3113
 --- !u!114 &2162511457671148290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _quest: {fileID: 11400000, guid: 88c3ac5468fe7e943ac003e099e879e5, type: 2}
-  itemName: hammer item_4743
 --- !u!1 &3294754670390911840
 GameObject:
   m_ObjectHideFlags: 0
