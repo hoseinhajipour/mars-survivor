@@ -39,9 +39,10 @@ public class CraftingStation : MonoBehaviour
                 }
                 else if (!hasRequiredItems)
                 {
+                    Vector3 _pos = transform.position;
+                    _pos.y += 2.5f;
                     // Show error message
-                    Debug.LogError(errorMessage);
-                    // You can also display the error message on the UI or handle it in any other way
+                    FloatMessageManager.ShowFloatMessage(errorMessage, _pos, 3f);
                 }
             }
         }
@@ -60,8 +61,6 @@ public class CraftingStation : MonoBehaviour
             bool foundItem = false;
             foreach (ItemQuantityPair item in inventory.ItemQuantityPairs)
             {
-                Debug.Log(item.item.name + " === " + requiredItem.name);
-                Debug.Log(item.quantity + " >= " + requiredQuantity);
                 if (item.item.name == requiredItem.name && item.quantity >= requiredQuantity)
                 {
                     foundItem = true;

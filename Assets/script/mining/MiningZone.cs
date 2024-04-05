@@ -103,10 +103,10 @@ public class MiningZone : MonoBehaviour
         }
         else
         {
+            playerAnimator.Play("mining");
             Vector3 _pos = transform.position;
             _pos.y += 2.5f;
             FloatMessageManager.ShowFloatMessage("Level Need : " + PlayerLevelNeed, _pos, 3f);
-            Debug.Log("Player level is not sufficient for mining. Player level needed: " + PlayerLevelNeed);
         }
 
 

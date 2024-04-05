@@ -13,7 +13,7 @@ public class OxygenStation : MonoBehaviour
             {
                 // Refill player's oxygen
                 playerOxygen.RefillOxygen(refillAmount);
-                Debug.Log("Player's oxygen refilled!");
+              //  Debug.Log("Player's oxygen refilled!");
                 // Disable or destroy the oxygen station after use if needed
             }
         }
